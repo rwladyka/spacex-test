@@ -5,7 +5,9 @@ interface TitleProps {
   title: string
 }
 
-const Title: FC<TitleProps> = ({ title }) => <TitleStyled>{title}</TitleStyled>
+const Title: FC<TitleProps> = ({ title }) => (
+  <TitleStyled className="rw-launch-spot-title">{title}</TitleStyled>
+)
 
 const TitleStyled = styled.h2`
   font-size: 16px;

@@ -10,6 +10,10 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!-- <meta http-equiv="Content-Security-Policy"
+          content="script-src http://localhost:3000 https://www.googleanalytics.com https://www.google-analytics.com https://www.googleoptimize.com 'unsafe-inline';
+          style-src 'unsafe-inline';
+          img-src https://www.google-analytics.com https://www.googletagmanager.com" /> -->
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -25,6 +29,34 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <!-- anti-flicker snippet (recommended)  -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'OPT-N2P84H5':true});</script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-63811023-1"></script>
+    <script async src="https://www.googleoptimize.com/optimize.js?id=OPT-N2P84H5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-63811023-1', { 'optimize_id': 'OPT-N2P84H5'});
+      gtag('event', 'optimize.callback', {
+        callback: (value, name) => {
+          console.log(
+            'Experiment with ID: ' + name + ' is on variant: ' + value
+          );
+          window.VARIANT_ID = value;
+        },
+      });
+
+    </script>
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
