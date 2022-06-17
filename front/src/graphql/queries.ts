@@ -1,59 +1,32 @@
 import { gql } from '@apollo/client'
+import TypeLaunches from 'utils/TypeLaunchesEnum'
 
 const CORE_LAUNCHES_FIELD = `
   fragment CoreLaunchFields on Launch {
     launchpad
     name
-    auto_update
     date_utc
-    failures {
-      altitude
-      reason
-      time
-    }
-    fairings {
-      recovered
-      recovery_attempt
-      reused
-    }
     flight_number
-    rocket
-    success
-    upcoming
-  }
-`
-
-export const LATEST = gql`
-  ${CORE_LAUNCHES_FIELD}
-  query {
-    latest {
-      ...CoreLaunchFields
-    }
-  }
-`
-export const NEXT = gql`
-  ${CORE_LAUNCHES_FIELD}
-  query {
-    next {
-      ...CoreLaunchFields
+    links {
+      webcast
+      wikipedia
+      youtube_id
+      reddit {
+        launch
+      }
+      patch {
+        small
+      }
     }
   }
 `
 
-export const PAST = gql`
-  ${CORE_LAUNCHES_FIELD}
-  query {
-    past {
-      ...CoreLaunchFields
+export const getQueryByType = (type: TypeLaunches) =>
+  gql`
+    ${CORE_LAUNCHES_FIELD}
+    query {
+      ${type} {
+        ...CoreLaunchFields
+      }
     }
-  }
-`
-
-export const UPCOMING = gql`
-  ${CORE_LAUNCHES_FIELD}
-  query {
-    upcoming {
-      ...CoreLaunchFields
-    }
-  }
-`
+  `

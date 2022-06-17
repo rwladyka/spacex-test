@@ -1,8 +1,8 @@
 enum TypeLaunches {
-  LATEST,
-  NEXT,
-  PAST,
-  UPCOMING,
+  LATEST = 'latest',
+  NEXT = 'next',
+  PAST = 'past',
+  UPCOMING = 'upcoming',
 }
 
 export default TypeLaunches
