@@ -6,7 +6,11 @@ interface TitleProps {
 }
 
 const Title: FC<TitleProps> = ({ title }) => (
-  <TitleStyled className="rw-launch-spot-title">{title}</TitleStyled>
+  <TitleStyled
+    className="rw-launch-spot-title"
+    data-testid="rw-launch-spot-title-test-id">
+    {title}
+  </TitleStyled>
 )
 
 const TitleStyled = styled.h2`
