@@ -8,35 +8,12 @@ async function main() {
   const server = createServer({
     schema,
     plugins: [useResponseCache({ ttl: TTL_CACHE })],
+    cors: (req) => ({
+      origin: req.headers.get('origin') || 'http://localhost:3000',
+      methods: ['POST'],
+    }),
   })
   await server.start()
 }
 
 main()
-// query {
-//   latest {
-//     name
-//     full_name
-//     status
-//     locality
-//     details
-//     success
-//     date_utc
-//     failures {
-//       time
-//       altitude
-//       reason
-//     }
-//     links {
-//       patch {
-//         small
-//         large
-//       }
-//       reddit {
-//         launch
-//       }
-//       webcast
-//       youtube_id
-//     }
-//   }
-// }
