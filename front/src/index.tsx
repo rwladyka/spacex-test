@@ -3,11 +3,25 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  HttpLink,
+} from '@apollo/client'
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/',
   cache: new InMemoryCache(),
+  credentials: 'include',
+  link: new HttpLink({
+    uri: 'http://localhost:4000/graphql',
+    headers: {
+      contentType: 'application/json',
+      accept: 'application/json, multipart/mixed',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
+  }),
 })
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
