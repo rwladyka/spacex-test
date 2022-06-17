@@ -1,36 +1,38 @@
-import React from "react";
+import React from 'react'
 
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const Loading = () => {
   return (
-    <LoadingStyled data-testid="rw-loading-test-id">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </LoadingStyled>
-  );
-};
+    <div style={{ textAlign: 'center' }}>
+      <LoadingStyled data-testid="rw-loading-test-id">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </LoadingStyled>
+    </div>
+  )
+}
 
 const LoadingStyled = styled.div`
   display: inline-block;
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 60px;
+  height: 60px;
   margin: auto;
 
   & div {
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 48px;
+    height: 48px;
     margin: 2px;
-    border: 2px solid #fff;
+    border: 2px solid #333;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fff transparent transparent transparent;
+    border-color: #333 transparent transparent transparent;
   }
 
   & div:nth-child(1) {
@@ -50,6 +52,6 @@ const LoadingStyled = styled.div`
       transform: rotate(360deg);
     }
   }
-`;
+`
 
-export default Loading;
+export default Loading
