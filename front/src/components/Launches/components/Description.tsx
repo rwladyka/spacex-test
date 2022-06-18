@@ -12,6 +12,7 @@ const hasLink = ({ links }: any) =>
   links?.reddit?.launch || links.webcast || links.wikipedia
 
 const Description: FC<DescriptionProps> = ({ launch }) => {
+  const date = moment(launch.date_utc)
   return (
     <Box direction="column" padding="0 8px">
       <ItemDesciption
@@ -20,11 +21,11 @@ const Description: FC<DescriptionProps> = ({ launch }) => {
       />
       <ItemDesciption
         title="Data de lançamento"
-        description={moment(launch.date_utc).format('DD/MM/yyyy')}
+        description={date.format('DD/MM/yyyy')}
       />
       <ItemDesciption
         title="Hora de lançamento (UTC)"
-        description={moment(launch.date_utc).format('HH:mm')}
+        description={date.format('HH:mm')}
       />
       {hasLink(launch) && (
         <Box direction="column">
