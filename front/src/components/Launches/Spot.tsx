@@ -1,6 +1,5 @@
 import { FC, useState, useEffect } from 'react'
 import Box from 'components/Box'
-import TypeLaunches from 'utils/TypeLaunchesEnum'
 import Image from './components/Image'
 import Description from './components/Description'
 import Title from './components/Title'
