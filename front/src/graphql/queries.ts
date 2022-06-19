@@ -30,3 +30,20 @@ export const getQueryByType = (type: TypeLaunches) =>
       }
     }
   `
+
+export const getPaginationQueryByType = (
+  type: TypeLaunches,
+  limit = 5,
+  page = 1,
+) =>
+  gql`
+    ${CORE_LAUNCHES_FIELD}
+    query {
+      ${type}(limit: ${limit}, page: ${page}){
+        launches {
+          ...CoreLaunchFields
+        }
+        totalItems
+      }
+    }
+  `

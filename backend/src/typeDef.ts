@@ -94,10 +94,15 @@ type Launch {
   auto_update: Boolean
 }
 
+type Pagination {
+    launches: [Launch]
+    totalItems: Int
+}
+
 type Query {
   latest: Launch
   next: Launch
-  past: [Launch]
-  upcoming: [Launch]
+  past(limit: Int, page: Int): Pagination
+  upcoming(limit: Int, page: Int): Pagination
 }
 `

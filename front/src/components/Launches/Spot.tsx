@@ -16,15 +16,17 @@ const Spot: FC<SpotProps> = ({ launch }) => {
   useEffect(() => setDirection(isMobile ? 'column' : 'row'), [isMobile])
 
   return (
-    <Box direction="column">
-      <Title title={launch.name} />
-      <Box direction={direction}>
-        {launch.links?.youtube_id && (
-          <Image title={launch.name} youtubeId={launch.links.youtube_id} />
-        )}
-        <Description launch={launch} />
+    <div style={{ minWidth: '100%' }}>
+      <Box direction="column">
+        <Title title={launch.name} />
+        <Box direction={direction}>
+          {launch.links?.youtube_id && (
+            <Image title={launch.name} youtubeId={launch.links.youtube_id} />
+          )}
+          <Description launch={launch} />
+        </Box>
       </Box>
-    </Box>
+    </div>
   )
 }
 

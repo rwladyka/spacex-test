@@ -1,20 +1,28 @@
+import { useState } from 'react'
 import { useQuery } from '@apollo/client'
 import TypeLaunches from 'utils/TypeLaunchesEnum'
-import { getQueryByType } from '../../graphql/queries'
+import { getPaginationQueryByType } from '../../graphql/queries'
 import Loading from '../Loading'
-import Spot from './Spot'
+import SpotList from './SpotList'
+import { ITEMS_PER_PAGE } from 'utils/constraints'
 
 const Past = () => {
-  const { loading, error, data } = useQuery(getQueryByType(TypeLaunches.PAST))
+  const [page, setPage] = useState(1)
+  const { loading, error, data } = useQuery(
+    getPaginationQueryByType(TypeLaunches.PAST, ITEMS_PER_PAGE, page),
+  )
 
   if (loading) return <Loading />
   if (error) return <p>Error :(</p>
 
   return (
     <>
-      {data.past.map((launch: any, index: number) => (
-        <Spot launch={launch} key={index} />
-      ))}
+      <SpotList
+        launchList={data.past.launches}
+        totalPages={Math.trunc(data.past.totalItems / ITEMS_PER_PAGE)}
+        onPaging={(p: number) => setPage(p)}
+        selectedPage={page}
+      />
     </>
   )
 }

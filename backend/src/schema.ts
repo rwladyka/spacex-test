@@ -13,13 +13,21 @@ const resolvers = {
       const { data } = await axios.get(routes().next)
       return data
     },
-    past: async () => {
+    past: async (limit = 5, page: any) => {
       const { data } = await axios.get(routes().past)
-      return data
+      const offset = (page.page - 1) * limit
+      return {
+        launches: data.slice(offset, offset + limit),
+        totalItems: data.length,
+      }
     },
-    upcoming: async () => {
+    upcoming: async (limit = 5, page: any) => {
       const { data } = await axios.get(routes().upcoming)
-      return data
+      const offset = (page.page - 1) * limit
+      return {
+        launches: data.slice(offset, offset + limit),
+        totalItems: data.length,
+      }
     },
   },
 }
