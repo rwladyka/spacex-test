@@ -23,8 +23,6 @@ const get = async (query: string) => {
 
 it('should request to latest', async () => {
   const response = await get('latest')
-
-  console.assert(response.status === 200, 'Response status should be 200')
   const executionResult = await response.json()
 
   expect(response.status).toBe(200)
@@ -36,7 +34,6 @@ it('should request to next', async () => {
   const response = await get('next')
 
   const executionResult = await response.json()
-  console.log('executionResult', executionResult.data)
 
   expect(response.status).toBe(200)
   expect(executionResult.data.next.name).toBe('Globalstar FM15')
@@ -48,7 +45,6 @@ it('should request to past', async () => {
   const response = await get('past')
 
   const executionResult = await response.json()
-  console.log('executionResult', executionResult.data)
 
   expect(response.status).toBe(200)
   expect(executionResult.data.past[0].name).toBe('FalconSat')
@@ -63,7 +59,6 @@ it('should request to upcoming', async () => {
   const response = await get('upcoming')
 
   const executionResult = await response.json()
-  console.log('executionResult', executionResult.data)
 
   expect(response.status).toBe(200)
   expect(executionResult.data.upcoming[0].name).toBe('Globalstar FM15')
