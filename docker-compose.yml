@@ -1,0 +1,26 @@
+version: "3"
+services:
+  graphql:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    image: nodejs
+    container_name: graphql
+    command: npm run dev
+    volumes:
+      - ./backend:/usr/src/app
+    ports:
+      - "4000:4000"
+  web:
+    image: nodejs
+    build:
+      context: .
+      dockerfile: ./front/Dockerfile
+    container_name: frontend
+    command: npm start
+    volumes:
+      - ./front:/usr/src/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - graphql
