@@ -1,0 +1,20 @@
+{
+  "name": "callix-test",
+  "version": "1.0.0",
+  "description": "Este é um app criado para integrar o frontend com a API da [space-x](https://github.com/r-spacex/SpaceX-API)",
+  "scripts": {
+    "prebuild": "npm ci --prefix backend && npm ci --dev --prefix front",
+    "build": "npm run build --prefix frontend",
+    "start": "npm start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rwladyka/spacex-test.git"
+  },
+  "author": "Rodrigo Wladyka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rwladyka/spacex-test/issues"
+  },
+  "homepage": "https://github.com/rwladyka/spacex-test#readme"
+}
