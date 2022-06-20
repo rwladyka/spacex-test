@@ -4,7 +4,7 @@
   "description": "Este é um app criado para integrar o frontend com a API da [space-x](https://github.com/r-spacex/SpaceX-API)",
   "scripts": {
     "prebuild": "npm ci --prefix backend && npm ci --dev --prefix front",
-    "build": "npm run build --prefix frontend",
+    "build": "npm run build --prefix front",
     "start": "npm start --prefix backend"
   },
   "repository": {
