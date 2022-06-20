@@ -9,10 +9,11 @@ async function main() {
     schema,
     plugins: [useResponseCache({ ttl: TTL_CACHE })],
     cors: (req) => ({
-      origin: req.headers.get('origin') || 'http://localhost:3000',
+      origin: process.env.CORS_ORIGIN,
       methods: ['POST'],
     }),
   })
+
   await server.start()
 }
 
