@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/rwladyka/spacex-test/issues"
   },
-  "homepage": "https://github.com/rwladyka/spacex-test#readme"
+  "homepage": "https://github.com/rwladyka/spacex-test#readme",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
 }
