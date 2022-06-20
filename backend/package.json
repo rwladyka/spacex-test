@@ -6,6 +6,8 @@
   "scripts": {
     "test": "jest --coverage --forceExit",
     "test:watch": "jest --watch --coverage",
+    "prebuild": "npm install typescript -g -y",
+    "build": "tsc",
     "dev": "cross-env NODE_ENV=development ts-node-dev --exit-child --respawn src/main.ts",
     "start": "node index.js"
   },
