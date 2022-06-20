@@ -8,21 +8,23 @@ e então na pasta front
 
 `npm install && npm start`
 
-Após o backend e frontend estarem rodando, para visualizar o teste A/B, edite o arquivo hosts do computador e adicione o host localhost.com apontando para o ip de loopback 127.0.0.1 e acesse no navegador http://localhost.com:3000, o teste de alternativa vai remover o título do lançamento.
+O teste A/B, foi configurado no servidor do heroku [aqui](https://callix-challenge.herokuapp.com/)
 
 para executar os testes rode o comando `npm run test` em suas consecutivas pastas. 
 
 ## Docker
 
-Você também pode utilizar o docker para subir a aplicação na sua máquina, você precisará instalar o docker e o docker-compose em sua máquina. Com isso instalado, basta digitar primeiramente:
+Você também pode utilizar o docker, para isso, você precisa ter instalado o docker e o docker-compose em sua máquina. Com isso, basta digitar:
 
 `docker-compose build`
 
-e após finalizar com sucesso o comando acima, você pode executar (ctrl + c para finalizar):
+para criar as imagens dos containers em seu computador.
+
+e após finalizar com sucesso o comando acima, para executar o sistema:
 
 `docker-compose up` 
 
-ou para executar em segundo plano :
+ou para executar em segundo plano:
 
 `docker-compose up -d`
 
