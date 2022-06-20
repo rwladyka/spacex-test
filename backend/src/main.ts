@@ -23,7 +23,7 @@ async function main() {
 
   app.use(express.static(path.join(__dirname, '../../front/build/')))
 
-  app.listen(4000, () => {
+  app.listen(process.env.PORT || 4000, () => {
     console.log('Running a GraphQL API server at http://localhost:4000/graphql')
   })
 }
