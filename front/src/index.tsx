@@ -10,11 +10,13 @@ import {
   HttpLink,
 } from '@apollo/client'
 
+console.log(process.env)
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   credentials: 'include',
   link: new HttpLink({
-    uri: process.env.GRAPQL_URI,
+    uri: process.env.REACT_APP_GRAPHQL_URI,
     headers: {
       contentType: 'application/json',
       accept: 'application/json, multipart/mixed',
