@@ -2,12 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/main.ts",
+  "main": "index.js",
   "scripts": {
     "test": "jest --coverage --forceExit",
     "test:watch": "jest --watch --coverage",
     "dev": "cross-env NODE_ENV=development ts-node-dev --exit-child --respawn src/main.ts",
-    "start": "ts-node src/main.ts"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Rodrigo Wladyka",
