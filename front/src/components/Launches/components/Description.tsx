@@ -9,7 +9,7 @@ interface DescriptionProps {
 }
 
 const hasLink = ({ links }: any) =>
-  links?.reddit?.launch || links.webcast || links.wikipedia
+  links?.reddit?.launch || links?.webcast || links?.wikipedia
 
 const Description: FC<DescriptionProps> = ({ launch }) => {
   const date = moment(launch.date_utc)

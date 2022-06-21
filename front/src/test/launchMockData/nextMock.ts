@@ -8,7 +8,7 @@ export const nextMock = [
     },
     result: {
       data: {
-        next: {
+        [TypeLaunches.NEXT]: {
           launchpad: '5e9e4501f509094ba4566f84',
           name: 'Globalstar FM15',
           date_utc: '2022-06-19T04:27:00.000Z',

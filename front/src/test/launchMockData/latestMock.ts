@@ -8,7 +8,7 @@ export const latestMock = [
     },
     result: {
       data: {
-        latest: {
+        [TypeLaunches.LATEST]: {
           launchpad: '5e9e4502f509094188566f88',
           name: 'Starlink 4-19 (v1.5)',
           date_utc: '2022-06-01T17:08:50.000Z',

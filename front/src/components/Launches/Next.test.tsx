@@ -1,6 +1,6 @@
 import React from 'react'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
-import App from 'App'
+import Next from './Next'
 import { MockedProvider } from '@apollo/client/testing'
 import { nextMock } from 'test/launchMockData'
 import moment from 'moment'
@@ -8,12 +8,9 @@ import moment from 'moment'
 it('should render the next launch', async () => {
   render(
     <MockedProvider mocks={nextMock}>
-      <App />
+      <Next />
     </MockedProvider>,
   )
-
-  const nextLink = await screen.findByText(/NEXT LAUNCH/i)
-  await fireEvent.click(nextLink)
 
   await waitFor(() => new Promise((res) => setTimeout(res, 0)))
   const title = await screen.findByText('Globalstar FM15')

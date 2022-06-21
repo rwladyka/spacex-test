@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
-import App from 'App'
+import Latest from './Latest'
 import { MockedProvider } from '@apollo/client/testing'
 import { latestMock } from 'test/launchMockData'
 import moment from 'moment'
@@ -8,7 +8,7 @@ import moment from 'moment'
 it('should render the latest launch', async () => {
   render(
     <MockedProvider mocks={latestMock}>
-      <App />
+      <Latest />
     </MockedProvider>,
   )
 

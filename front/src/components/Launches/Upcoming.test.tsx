@@ -1,6 +1,6 @@
 import React from 'react'
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
-import App from 'App'
+import { render, screen, waitFor } from '@testing-library/react'
+import Upcoming from './Upcoming'
 import { MockedProvider } from '@apollo/client/testing'
 import { upcomingMock } from 'test/launchMockData'
 import moment from 'moment'
@@ -8,12 +8,9 @@ import moment from 'moment'
 it('should render the upcoming launches', async () => {
   render(
     <MockedProvider mocks={upcomingMock}>
-      <App />
+      <Upcoming />
     </MockedProvider>,
   )
-
-  const pastLink = await screen.findByText(/UPCOMING LAUNCH/i)
-  await fireEvent.click(pastLink)
 
   await waitFor(() => new Promise((res) => setTimeout(res, 0)))
   const img = await screen.findAllByRole('img')
@@ -35,16 +32,14 @@ it('should render the upcoming launches', async () => {
   const launchDateText = screen.getAllByText(/Data de lançamento/)
   expect(launchDateText.length).toBe(2)
 
+  const { launches } = upcomingMock[0].result.data.upcoming
+
   const launchDateValue1 = screen.getByText(
-    moment(upcomingMock[0].result.data.upcoming[0].date_utc).format(
-      'DD/MM/yyyy',
-    ),
+    moment(launches[0].date_utc).format('DD/MM/yyyy'),
   )
   expect(launchDateValue1).toBeInTheDocument()
   const launchDateValue2 = screen.getByText(
-    moment(upcomingMock[0].result.data.upcoming[1].date_utc).format(
-      'DD/MM/yyyy',
-    ),
+    moment(launches[1].date_utc).format('DD/MM/yyyy'),
   )
   expect(launchDateValue2).toBeInTheDocument()
 
@@ -52,11 +47,11 @@ it('should render the upcoming launches', async () => {
   expect(launchHourText.length).toBe(2)
 
   const launchHourValue1 = screen.getByText(
-    moment(upcomingMock[0].result.data.upcoming[0].date_utc).format('HH:mm'),
+    moment(launches[0].date_utc).format('HH:mm'),
   )
   expect(launchHourValue1).toBeInTheDocument()
   const launchHourValue2 = screen.getByText(
-    moment(upcomingMock[0].result.data.upcoming[1].date_utc).format('HH:mm'),
+    moment(launches[1].date_utc).format('HH:mm'),
   )
   expect(launchHourValue2).toBeInTheDocument()
 
