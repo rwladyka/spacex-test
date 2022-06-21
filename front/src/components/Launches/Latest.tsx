@@ -3,6 +3,7 @@ import TypeLaunches from 'utils/TypeLaunchesEnum'
 import { getQueryByType } from 'graphql/queries'
 import Loading from '../Loading'
 import Spot from './Spot'
+import { LatestType } from 'typing/Launch'
 
 const Latest = () => {
   const { loading, error, data } = useQuery<LatestType>(

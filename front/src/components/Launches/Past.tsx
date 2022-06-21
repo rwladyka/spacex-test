@@ -5,6 +5,7 @@ import { getPaginationQueryByType } from '../../graphql/queries'
 import Loading from '../Loading'
 import SpotList from './SpotList'
 import { ITEMS_PER_PAGE } from 'utils/constraints'
+import { PastType } from 'typing/Launch'
 
 interface PastProps {
   itemsPerPage?: number

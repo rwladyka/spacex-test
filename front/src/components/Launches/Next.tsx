@@ -3,6 +3,7 @@ import TypeLaunches from 'utils/TypeLaunchesEnum'
 import { getQueryByType } from 'graphql/queries'
 import Loading from '../Loading'
 import Spot from './Spot'
+import { NextType } from 'typing/Launch'
 
 const Next = () => {
   const { loading, error, data } = useQuery<NextType>(

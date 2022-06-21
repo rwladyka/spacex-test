@@ -7,7 +7,7 @@ enum DatePrecision {
   hour,
 }
 
-interface Ship {
+export interface Ship {
   name: string
   model: string
   interface: string
@@ -39,19 +39,19 @@ export interface Fairings {
   ships: Ship[]
 }
 
-interface Patch {
+export interface Patch {
   small: string
   large: string
 }
 
-interface Reddit {
+export interface Reddit {
   campaign: string
   launch: string
   media: string
   recovery: string
 }
 
-interface Links {
+export interface Links {
   patch: Patch
   reddit: Reddit
   webcast: string
@@ -60,13 +60,13 @@ interface Links {
   wikipedia: string
 }
 
-interface Failure {
+export interface Failure {
   time: number
   altitude: number
   reason: string
 }
 
-interface Launch {
+export interface Launch {
   fairings: Fairings
   links: Links
   name: string
@@ -93,23 +93,23 @@ interface Launch {
   auto_update: boolean
 }
 
-interface LatestType {
+export interface LatestType {
   latest: Launch
 }
 
-interface NextType {
+export interface NextType {
   next: Launch
 }
 
-interface PastType {
+export interface PastType {
   past: Pagination
 }
 
-interface UpcomingType {
+export interface UpcomingType {
   upcoming: Pagination
 }
 
-interface Pagination {
+export interface Pagination {
   launches: [Launch]
   totalItems: number
 }
