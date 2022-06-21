@@ -1,5 +1,5 @@
-import { FC, useQuery } from '@apollo/client'
-import { useState } from 'react'
+import { useQuery } from '@apollo/client'
+import { FC, useState } from 'react'
 import TypeLaunches from 'utils/TypeLaunchesEnum'
 import { getPaginationQueryByType } from '../../graphql/queries'
 import Loading from '../Loading'
@@ -12,12 +12,13 @@ interface UpcomingProps {
 
 const Upcoming: FC<UpcomingProps> = ({ itemsPerPage = ITEMS_PER_PAGE }) => {
   const [page, setPage] = useState(1)
-  const { loading, error, data } = useQuery(
+  const { loading, error, data } = useQuery<UpcomingType>(
     getPaginationQueryByType(TypeLaunches.UPCOMING, itemsPerPage, page),
   )
 
   if (loading) return <Loading />
   if (error) return <p>Error :(</p>
+  if (!data) return null
 
   return (
     <SpotList

@@ -5,12 +5,14 @@ import Loading from '../Loading'
 import Spot from './Spot'
 
 const Next = () => {
-  const { loading, error, data } = useQuery(getQueryByType(TypeLaunches.NEXT))
+  const { loading, error, data } = useQuery<NextType>(
+    getQueryByType(TypeLaunches.NEXT),
+  )
 
   if (loading) return <Loading />
   if (error) return <p>Error :(</p>
 
-  return <Spot launch={data.next} />
+  return <Spot launch={data?.next} />
 }
 
 export default Next

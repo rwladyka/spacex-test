@@ -6,7 +6,7 @@ import Title from './components/Title'
 import { useIsMobile } from 'hooks/useIsMobile'
 
 interface SpotProps {
-  launch: any
+  launch?: Launch
 }
 
 const Spot: FC<SpotProps> = ({ launch }) => {
@@ -14,6 +14,8 @@ const Spot: FC<SpotProps> = ({ launch }) => {
   const [direction, setDirection] = useState<'column' | 'row'>('column')
 
   useEffect(() => setDirection(isMobile ? 'column' : 'row'), [isMobile])
+
+  if (!launch) return null
 
   return (
     <div style={{ minWidth: '100%' }}>

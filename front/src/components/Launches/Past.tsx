@@ -12,12 +12,13 @@ interface PastProps {
 
 const Past: FC<PastProps> = ({ itemsPerPage = ITEMS_PER_PAGE }) => {
   const [page, setPage] = useState(1)
-  const { loading, error, data } = useQuery(
+  const { loading, error, data } = useQuery<PastType>(
     getPaginationQueryByType(TypeLaunches.PAST, itemsPerPage, page),
   )
 
   if (loading) return <Loading />
   if (error) return <p>Error :(</p>
+  if (!data) return null
 
   return (
     <>

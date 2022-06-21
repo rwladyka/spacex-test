@@ -3,7 +3,7 @@ import Pagination from './components/Pagination'
 import Spot from './Spot'
 
 interface SpotListProps {
-  launchList: any[]
+  launchList: Launch[]
   totalPages: number
   selectedPage: number
   onPaging: (page: number) => void

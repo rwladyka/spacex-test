@@ -5,12 +5,14 @@ import Loading from '../Loading'
 import Spot from './Spot'
 
 const Latest = () => {
-  const { loading, error, data } = useQuery(getQueryByType(TypeLaunches.LATEST))
+  const { loading, error, data } = useQuery<LatestType>(
+    getQueryByType(TypeLaunches.LATEST),
+  )
 
   if (loading) return <Loading />
   if (error) return <p>Error :(</p>
 
-  return <Spot launch={data.latest} />
+  return <Spot launch={data?.latest} />
 }
 
 export default Latest
