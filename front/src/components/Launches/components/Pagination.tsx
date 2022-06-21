@@ -18,6 +18,8 @@ const Pagination: FC<PaginationProps> = ({
     <PaginationStyle>
       {Array.from(new Array(Math.trunc(totalPages))).map((_, index: number) => (
         <PaginationItemStyle
+          data-testid="pagination-testid"
+          key={`pagination-${index}`}
           onClick={() => onClick(index + 1)}
           selected={selectedPage === index + 1}>
           {index + 1}

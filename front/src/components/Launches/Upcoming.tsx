@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/client'
+import { FC, useQuery } from '@apollo/client'
 import { useState } from 'react'
 import TypeLaunches from 'utils/TypeLaunchesEnum'
 import { getPaginationQueryByType } from '../../graphql/queries'
@@ -6,10 +6,14 @@ import Loading from '../Loading'
 import SpotList from './SpotList'
 import { ITEMS_PER_PAGE } from 'utils/constraints'
 
-const Upcoming = () => {
+interface UpcomingProps {
+  itemsPerPage?: number
+}
+
+const Upcoming: FC<UpcomingProps> = ({ itemsPerPage = ITEMS_PER_PAGE }) => {
   const [page, setPage] = useState(1)
   const { loading, error, data } = useQuery(
-    getPaginationQueryByType(TypeLaunches.UPCOMING, ITEMS_PER_PAGE, page),
+    getPaginationQueryByType(TypeLaunches.UPCOMING, itemsPerPage, page),
   )
 
   if (loading) return <Loading />
@@ -18,7 +22,7 @@ const Upcoming = () => {
   return (
     <SpotList
       launchList={data.upcoming.launches}
-      totalPages={Math.trunc(data.upcoming.totalItems / ITEMS_PER_PAGE)}
+      totalPages={Math.trunc(data.upcoming.totalItems / itemsPerPage)}
       onPaging={(p: number) => setPage(p)}
       selectedPage={page}
     />
