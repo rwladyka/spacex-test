@@ -6,6 +6,7 @@ import Loading from '../Loading'
 import SpotList from './SpotList'
 import { ITEMS_PER_PAGE } from 'utils/constraints'
 import { UpcomingType } from 'typing/Launch'
+import Error from 'components/Error'
 
 interface UpcomingProps {
   itemsPerPage?: number
@@ -18,7 +19,7 @@ const Upcoming: FC<UpcomingProps> = ({ itemsPerPage = ITEMS_PER_PAGE }) => {
   )
 
   if (loading) return <Loading />
-  if (error) return <p>Error :(</p>
+  if (error) return <Error />
   if (!data) return null
 
   return (

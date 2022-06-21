@@ -4,6 +4,7 @@ import { getQueryByType } from 'graphql/queries'
 import Loading from '../Loading'
 import Spot from './Spot'
 import { NextType } from 'typing/Launch'
+import Error from 'components/Error'
 
 const Next = () => {
   const { loading, error, data } = useQuery<NextType>(
@@ -11,7 +12,7 @@ const Next = () => {
   )
 
   if (loading) return <Loading />
-  if (error) return <p>Error :(</p>
+  if (error) return <Error />
 
   return <Spot launch={data?.next} />
 }
