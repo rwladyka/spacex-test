@@ -4,6 +4,7 @@ import Image from './components/Image'
 import Description from './components/Description'
 import Title from './components/Title'
 import { useIsMobile } from 'hooks/useIsMobile'
+import { Launch } from 'typing/Launch'
 
 interface SpotProps {
   launch?: Launch
