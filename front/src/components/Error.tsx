@@ -10,7 +10,8 @@ const ErrorStyled = styled.p`
   color: rgb(95, 33, 32);
   background: rgb(253, 237, 237);
   border-radius: 5px;
-  margin: auto 0;
+  margin: auto;
+  width: 200px;
 `
 
 export default Error
